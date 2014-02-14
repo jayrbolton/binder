@@ -1,12 +1,13 @@
 {
-  "name": "bind",
-  "repo": "the-swerve/bind",
+  "name": "binder",
+  "repo": "the-swerve/binder",
   "description": "Bind functions to attributes",
   "version": "0.0.1",
-  "keywords": ["reactive", "data", "bindings"],
+  "keywords": ["reactive", "data", "bind"],
   "dependencies": {
 	},
   "development": {
+		"component/domify": "1.2.1",
 		"component/assert": "0.3.0"
 	},
   "license": "MIT",
