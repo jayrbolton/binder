@@ -2,8 +2,6 @@
 
 Bind functions to attributes.
 
-Like component/reactive but with just bindings.
-
 Some ideas for ways you can use declarative bindings:
 
 * Dynamic templating
@@ -16,6 +14,8 @@ Some ideas for ways you can use declarative bindings:
 * Modal/dropdown/tooltip toggling
 
 No dependencies. IE6+.
+
+Like component/reactive but with just bindings.
 
 ## Installation
 
