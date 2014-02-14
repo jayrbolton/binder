@@ -13,6 +13,8 @@ var binder = function() {
 	return this
 }
 
+module.exports = binder;
+
 /* 
 Bind a DOM attribute to a function, passing in the attribute's value. The
 function is passed the node, the attribute value, and the attribute name.
@@ -37,12 +39,12 @@ Examples:
 
 binder.prototype.bind = function(attr_name, fn, options) {
 	this.bindings[attr_name] = fn
-	this.options[attr_name] = options
+	if (options) this.options[attr_name] = options
 	return this
 }
 
 /*
-Render a binding into an Element. If no Element is passed, it renders to document.body
+Render a binding into an Element.
 
 Examples:
 	var el = document.querySelector('.thing')
@@ -62,15 +64,17 @@ binder.prototype.render = function(el) {
 		var scoped = false // if true, don't render children
 
 		for (var i = 0; i < attrs.length; ++i) {
+			var attr = attrs[i]
 			var binding = self.bindings[attr.name]
 			if (binding) {
 				var bind_obj = {fn: binding, node: node, attr: attr}
 				var opts = self.options[attr.name]
-				;(opts.eager ? eagers : lazies).push(bind_obj)
-				scoped = binding.opts.scoped
+				;(opts && opts.eager ? eagers : lazies).push(bind_obj)
+				scoped = opts && opts.scoped
 			}
 		}
 		apply_attrs(eagers, lazies)
+		console.log('scoped', scoped, node)
 		return scoped ? [] : node.childNodes
 	})
 	return this
@@ -94,8 +98,9 @@ var each_node = function(el, fn) {
 
 // Apply a bind object to its node and attribute
 // (bind objects are constructed in find_binding)
-var apply_binding = function(fn, node, value, name) {
-	obj[i].fn(obj[i].node, obj[i].attr.value, obj[i].attr.name)
+var apply_binding = function(obj) {
+	console.log('applying', obj.attr.name)
+	obj.fn(obj.node, obj.attr.value, obj.attr.name)
 }
 
 // Apply eager bindings first, then the others
