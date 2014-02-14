@@ -4,6 +4,17 @@ Bind functions to attributes.
 
 Like component/reactive but with just bindings.
 
+Some ideas for ways you can use declarative bindings:
+
+* Dynamic templating
+* Inline form validation
+* Date, time, and currency formatting
+* State machines
+* Form wizards
+* Auto form submission
+* Input masks
+* Modal/dropdown/tooltip toggling
+
 No dependencies. IE6+.
 
 ## Installation
