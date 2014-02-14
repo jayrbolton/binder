@@ -1,0 +1,17 @@
+{
+  "name": "bind",
+  "repo": "the-swerve/bind",
+  "description": "Bind functions to attributes",
+  "version": "0.0.1",
+  "keywords": ["reactive", "data", "bindings"],
+  "dependencies": {
+	},
+  "development": {
+		"component/assert": "0.3.0"
+	},
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ]
+}

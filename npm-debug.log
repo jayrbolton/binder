@@ -1,0 +1,37 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', '-g' ]
+2 info using npm@1.3.11
+3 info using node@v0.10.12
+4 verbose cache add [ '.', null ]
+5 verbose cache add name=undefined spec="." args=[".",null]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: '.',
+6 verbose parsed url   path: '.',
+6 verbose parsed url   href: '.' }
+7 silly lockFile 3a52ce78- .
+8 verbose lock . /home/big/j/.npm/3a52ce78-.lock
+9 silly lockFile 3a52ce78- .
+10 silly lockFile 3a52ce78- .
+11 error addLocal Could not install .
+12 error Error: ENOENT, open 'package.json'
+13 error If you need help, you may report this log at:
+13 error     <http://github.com/isaacs/npm/issues>
+13 error or email it to:
+13 error     <npm-@googlegroups.com>
+14 error System Linux 3.11-2-amd64
+15 error command "node" "/usr/local/bin/npm" "install" "-g"
+16 error cwd /home/big/j/code/js/bind
+17 error node -v v0.10.12
+18 error npm -v 1.3.11
+19 error path package.json
+20 error code ENOENT
+21 error errno 34
+22 verbose exit [ 34, true ]
