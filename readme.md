@@ -16,6 +16,43 @@ $ component install the-swerve/bind
 
 ## API
 
+#### new binder()
+
+Instantiate a new binding
+
+```js
+var formatter = new binder()
+```
+
+#### bind(attribute, function, options)
+
+Bind a DOM attribute to a function, passing in the attribute's value. The
+function is passed the node, the attribute value, and the attribute name.
+
+```js
+	// format an element with some date text
+	formatter.bind('date', function(node, attr_value, attr_name) {
+		node.innerHTML = format_date(node.innerHTML, attr_value)
+	})
+```
+
+```js
+// Available Options
+{
+	eager: false, // run the callback on this function (default: false)
+	scoped: false // don&#39;t traverse children when rendering (default: false)
+}
+```
+
+#### render(node)
+
+Render a binding into an Element.
+
+```js
+var el = document.querySelector('div')
+formatter.render(el)
+```
+
 ## License
 
   The MIT License (MIT)
