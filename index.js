@@ -8,8 +8,7 @@ Examples:
 */
 
 var binder = function() {
-	this.bindings = {}
-	this.options = {}
+	this.bindings = this.options = {}
 	return this
 }
 
@@ -58,10 +57,7 @@ binder.prototype.render = function(el) {
 	var self = this;
 
 	each_node(el, function(node) {
-		var attrs = node.attributes
-		var eagers = []    // eager bindings
-		var lazies = []    // non-eager bindings
-		var scoped = false // if true, don't render children
+		var attrs = node.attributes, eagers = [], lazies = [], scoped = false
 
 		for (var i = 0; i < attrs.length; ++i) {
 			var attr = attrs[i]
@@ -74,7 +70,6 @@ binder.prototype.render = function(el) {
 			}
 		}
 		apply_attrs(eagers, lazies)
-		console.log('scoped', scoped, node)
 		return scoped ? [] : node.childNodes
 	})
 	return this
@@ -99,7 +94,6 @@ var each_node = function(el, fn) {
 // Apply a bind object to its node and attribute
 // (bind objects are constructed in find_binding)
 var apply_binding = function(obj) {
-	console.log('applying', obj.attr.name)
 	obj.fn(obj.node, obj.attr.value, obj.attr.name)
 }
 
