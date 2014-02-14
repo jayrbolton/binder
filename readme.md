@@ -35,7 +35,7 @@ Instantiate a new binding
 var formatter = new binder()
 ```
 
-#### bind(attribute, function, options)
+#### binder#bind(attribute, function, options)
 
 Bind a DOM attribute to a function, passing in the attribute's value. The
 function is passed the node, the attribute value, and the attribute name.
@@ -55,7 +55,7 @@ formatter.bind('date', function(node, attr_value, attr_name) {
 }
 ```
 
-#### render(node)
+#### binder#render(node)
 
 Render a binding into an Element.
 
