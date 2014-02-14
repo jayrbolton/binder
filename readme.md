@@ -1,12 +1,14 @@
 # binder
 
-Bind js functions to DOM attributes.
+Bind functions to attributes.
+
+Like component/reactive but with just bindings.
 
 No dependencies. IE6+.
 
 ## Installation
 
-[component(1)](http://component.io):
+[component](http://component.io)
 
 ```sh
 $ component install the-swerve/bind
