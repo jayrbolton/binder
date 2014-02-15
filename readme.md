@@ -22,7 +22,7 @@ Like component/reactive but with just bindings.
 [component](http://component.io)
 
 ```sh
-$ component install the-swerve/bind
+$ component install the-swerve/binder
 ```
 
 ## API
@@ -32,28 +32,35 @@ $ component install the-swerve/bind
 Instantiate a new binding
 
 ```js
+var binder = require('binder')
 var formatter = new binder()
 ```
 
-#### binder#bind(attribute, function, options)
+#### binder#bind(attribute, fn), binder#bind(attribute, fn, options)
 
 Bind a DOM attribute to a function, passing in the attribute's value. The
 function is passed the node, the attribute value, and the attribute name.
 
 ```js
 // format an element with some date text
-formatter.bind('date', function(node, attr_value, attr_name) {
-	node.innerHTML = format_date(node.innerHTML, attr_value)
+formatter.bind('date', function(node, attr_val) {
+	node.innerHTML = format_date(node.innerHTML, attr_val)
 })
 ```
 
 ```js
 // Available Options
 {
-	eager: false, // run the callback on this function (default: false)
-	scoped: false // don&#39;t traverse children when rendering (default: false)
+	eager: false, // run this binding before others on this node (default: false)
+	scoped: false // don't traverse children within this node when rendering (default: false)
 }
 ```
+
+Eager bindings are useful for making sure that certain bindings run before
+others. Multiple eager bindings will have no guaranteed order.
+
+Scoped bindings will prevent the renderer from checking for any bindings within
+the children of its node. 
 
 #### binder#render(node)
 
@@ -63,6 +70,8 @@ Render a binding into an Element.
 var el = document.querySelector('div')
 formatter.render(el)
 ```
+
+This will find and call any bindings within `el`, including `el` itself.
 
 ## License
 

@@ -16,7 +16,6 @@ binder.prototype.render = function(el) {
 	var self = this;
 	each_node(el, function(node) {
 		var eagers = [], lazies = [], scoped = false
-		if (!node.attributes) return []
 		each(node.attributes, function(attr) {
 			var binding = self.bindings[attr.name]
 			if (binding) {
@@ -36,10 +35,7 @@ binder.prototype.render = function(el) {
 // node. the return value of the function should supply (or not) the childNodes.
 var each_node = function(el, fn) {
 	var stack = [el]
-	while (stack.length > 0) {
-		var v = fn(stack.pop())
-		stack = stack.concat(v)
-	}
+	while (stack.length > 0) stack.push.apply(fn(stack.pop()))
 }
 
 // apply eager bindings first, then the others

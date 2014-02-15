@@ -6,9 +6,9 @@ describe('binder', function() {
 
 	it ('binds a function to an attribute', function() {
 		var called = 0
-		var el = domify('<div bind></div>')
+		var el = domify('<div data-bind></div>')
 		var inst = new binder()
-		inst.bind('bind', function() { ++called })
+		inst.bind('data-bind', function() { ++called })
 		inst.render(el)
 		assert.equal(called, 1)
 	})
@@ -17,8 +17,9 @@ describe('binder', function() {
 		var called = 0
 		var el = domify('<div bind><p scope></p></div>')
 		var inst = new binder()
-		inst.bind('bind', function() { ++called }, {scoped: true})
-		inst.bind('scope', function() { ++called } )
+		var inc = function() { ++called }
+		inst.bind('bind', inc, {scoped: true})
+		inst.bind('scope', inc)
 		inst.render(el)
 		assert.equal(called, 1)
 	})
