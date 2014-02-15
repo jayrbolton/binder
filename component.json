@@ -2,7 +2,7 @@
   "name": "binder",
   "repo": "the-swerve/binder",
   "description": "Bind functions to attributes",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "keywords": ["reactive", "data", "bind"],
   "dependencies": {
 	},
