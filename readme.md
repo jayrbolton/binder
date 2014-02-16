@@ -27,13 +27,13 @@ $ component install the-swerve/binder
 
 ## API
 
-#### new binder()
+#### binder()
 
 Instantiate a new binding
 
 ```js
 var binder = require('binder')
-var formatter = new binder()
+var formatter = binder()
 ```
 
 #### binder#bind(attribute, fn), binder#bind(attribute, fn, options)

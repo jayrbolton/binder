@@ -7,20 +7,20 @@ describe('binder', function() {
 	it ('binds a function to an attribute', function() {
 		var called = 0
 		var el = domify('<div data-bind></div>')
-		var inst = new binder()
-		inst.bind('data-bind', function() { ++called })
-		inst.render(el)
+		binder()
+			.bind('data-bind', function() { ++called })
+			.render(el)
 		assert.equal(called, 1)
 	})
 
 	it ('doesnt render inside scoped bindings', function() {
 		var called = 0
 		var el = domify('<div bind><p scope></p></div>')
-		var inst = new binder()
 		var inc = function() { ++called }
-		inst.bind('bind', inc, {scoped: true})
-		inst.bind('scope', inc)
-		inst.render(el)
+		binder()
+			.bind('bind', inc, {scoped: true})
+			.bind('scope', inc)
+			.render(el)
 		assert.equal(called, 1)
 	})
 
