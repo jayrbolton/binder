@@ -6,11 +6,11 @@ describe('binder', function() {
 
 	it ('binds a function to an attribute', function() {
 		var called = 0
-		var el = domify('<div data-bind></div>')
+		var el = domify('<div><div data-bind></div></div>')
 		binder()
 			.bind('data-bind', function() { ++called })
 			.render(el)
-		assert.equal(called, 1)
+		assert.equal(called, 1, 'should be called')
 	})
 
 	it ('doesnt render inside scoped bindings', function() {
