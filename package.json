@@ -1,0 +1,24 @@
+{
+  "name": "attr-binder",
+  "version": "0.3.0",
+  "description": "Bind functions to attributes",
+	"bugs": "https://github.com/the-swerve/binder/issues",
+	"url": "https://github.com/the-swerve/binder",
+  "license": "MIT",
+	"author": {
+		"name": "Jay R Bolton",
+		"email": "jayrbolton@gmail.com",
+		"url": "https://github.com/the-swerve"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/the-swerve/citizen.git"
+	},
+  "keywords": ["reactive", "data", "bind"],
+  "dependencies": {},
+  "devDependencies": {
+		"zuul": "1.6.5",
+    "mocha": "1.20.1",
+		"domify": "1.2.2"
+	}
+}
