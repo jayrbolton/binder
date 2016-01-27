@@ -10,7 +10,7 @@ $ npm install attr-binder
 var bind = require('binder')
 ```
 
-#### bind(attribute, fn), bind(attribute, starting_node, fn)
+#### bind(attribute, fn), bind(attribute, parentNode, fn)
 
 Bind a DOM attribute to a function, passing in the attribute's value. The
 function is passed the node, the attribute value, and the attribute name.
@@ -27,4 +27,10 @@ comment modal depending on whether the user is signed in.
 bind('markdown', function(node) {
 	node.innerHTML = marked(node.innerHTML)
 })
+```
+
+You can scope the bindings beneath a parent element
+```js
+bind('markdown', document.querySelector('.content'), fn)
+// only binds to elements that are children of .content
 ```
